@@ -1,7 +1,7 @@
 name = "World Time Adjuster"
 description = "Take control of the world’s flow of time with the World Time Adjuster mod!"
 author = "bezdar"
-version = "1.0.0"
+version = "1.0.2"
 
 forumthread = ""
 

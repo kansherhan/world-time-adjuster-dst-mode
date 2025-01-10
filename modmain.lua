@@ -1,11 +1,9 @@
 local _G = GLOBAL
 
-local keys = {
-    PREV_KEY = "KEY_F9",
-    NEXT_KEY = "KEY_F10"
-}
+local PREV_KEY = _G["KEY_F9"]
+local NEXT_KEY = _G["KEY_F10"]
 
-local multipliers = { 0.25, 0.5, 1, 2, 4, 8, 10, 20 }
+local multipliers = { 0.25, 0.5, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 4, 5 }
 
 local multiplierArraySize = #multipliers
 local currentMultiplierIndex = 3
@@ -19,22 +17,18 @@ local function ToggleWorldTimeSpeedMode()
     _G.ThePlayer.components.talker:Say(text)
 end
 
-_G.TheInput:AddKeyUpHandler(_G[keys.PREV_KEY], function(key)
+_G.TheInput:AddKeyUpHandler(PREV_KEY, function(key)
     if currentMultiplierIndex - 1 >= 1 then
         currentMultiplierIndex = currentMultiplierIndex - 1
-    else
-        currentMultiplierIndex = multiplierArraySize
-    end
 
-    ToggleWorldTimeSpeedMode()
+        ToggleWorldTimeSpeedMode()
+    end
 end)
 
-_G.TheInput:AddKeyUpHandler(_G[keys.NEXT_KEY], function(key)
+_G.TheInput:AddKeyUpHandler(NEXT_KEY, function(key)
     if currentMultiplierIndex + 1 <= multiplierArraySize then
         currentMultiplierIndex = currentMultiplierIndex + 1
-    else
-        currentMultiplierIndex = 1
-    end
 
-    ToggleWorldTimeSpeedMode()
+        ToggleWorldTimeSpeedMode()
+    end
 end)
